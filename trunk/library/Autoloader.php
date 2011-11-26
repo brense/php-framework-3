@@ -24,8 +24,8 @@ class AutoLoader {
 	
 	public static $instance;
 		
-	public static function instance($src = null, $ext = null) {
-		if(empty(self::$instance)) {
+	public static function instance($src = null, $ext = null){
+		if(empty(self::$instance)){
 			self::$instance = new self($src, $ext);
 		}
 		return self::$instance;
@@ -39,10 +39,10 @@ class AutoLoader {
 	private function __construct($src = null, $ext = null){
 		$this->_path = APP_PATH;
 		
-		if(is_array($src)) {
+		if(is_array($src)){
 			$this->_src = $src;
 		}
-		if(is_array($ext)) {
+		if(is_array($ext)){
 			$this->_ext = $ext;
 		}
 		spl_autoload_register(array($this, 'loadClass'));
@@ -52,13 +52,13 @@ class AutoLoader {
 	 * The class loader function that loads the classes
 	 * @param string $class
 	 */
-	private function loadClass($class) {
+	private function loadClass($class){
 		$this->_class = str_replace('_', '/', $class);
 		$found = false;
 		// loop through all the class sources and extentions untill the class is found
-		foreach($this->_src as $resource) {
-			foreach($this->_ext as $ext) {
-				if(file_exists($this->_path . $resource . $this->_class . $ext)) {
+		foreach($this->_src as $resource){
+			foreach($this->_ext as $ext){
+				if(file_exists($this->_path . $resource . $this->_class . $ext)){
 					include($this->_path . $resource . $this->_class . $ext);
 					$found = true;
 					break 2;
