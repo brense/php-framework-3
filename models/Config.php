@@ -27,10 +27,10 @@ class Config implements iSingleton {
 	
 	private static $_instance;
 	
-	private function __construct() {}
+	private function __construct(){}
 
-	public static function instance() {
-		if(empty(self::$_instance)) {
+	public static function instance(){
+		if(empty(self::$_instance)){
 			self::$_instance = new self();
 		}
 		return self::$_instance;

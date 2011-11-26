@@ -14,7 +14,7 @@ class DbControllerFactory {
 	 * @param string $table
 	 * @param string $dbType
 	 */
-	public static function getDbController($dbType = null) {
+	public static function getDbController($dbType = null){
 		// determine the correct db type
 		if(!isset($dbType)){
 			$dbType = AppHelper::instance()->cfg->db['type'];

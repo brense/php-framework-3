@@ -15,7 +15,7 @@ class Request extends Observable {
 	protected $_timestamp;
 	protected $_ip;
 
-	public function __construct() {}
+	public function __construct(){}
 	
 	/**
 	 * Check if a requester ip is blocked
